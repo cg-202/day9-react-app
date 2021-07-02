@@ -4,37 +4,68 @@ import { useState } from "react";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import { MyAppHomePage } from "./pages/MyAppHomePage";
-import { MyAppExplorePage } from "./pages/MyAppExplorePage";
-import { MyAppNotificationPage } from "./pages/MyAppNotificationPage";
-import { MyAppMessagesPage } from "./pages/MyAppMessagesPage";
-
 function App() {
   return (
     <Router>
-      {/** Common Navigation Bar */}
-      {/** d-flex justify-content-between  */}
-      <div className="bg-dark text-light p-4 mb-2 d-flex justify-content-between">
-        <Link to="/home">
-          <h3 className="text-light">Home</h3>
+      <div className="bg-dark text-light p-2 d-flex justify-content-between">
+        <Link to="/page1">
+          <h3>Page1</h3>
         </Link>
-        <Link to="/explore">
-          <h3 className="text-light">Explore</h3>
+        <Link to="/page2">
+          <h3>Page2</h3>
         </Link>
-        <Link to="/notification">
-          <h3 className="text-light">Notification</h3>
-        </Link>
-        <Link to="/message">
-          <h3 className="text-light">Messages</h3>
+        <Link to="/page3">
+          <h3>Page3</h3>
         </Link>
       </div>
 
-      <Route exact path="/" component={MyAppHomePage} />
-      <Route exact path="/home" component={MyAppHomePage} />
-      <Route exact path="/explore" component={MyAppExplorePage} />
-      <Route exact path="/notification" component={MyAppNotificationPage} />
-      <Route exact path="/message" component={MyAppMessagesPage} />
+      <Route exact path="/" component={Page1} />
+      <Route exact path="/page1" component={Page1} />
+      <Route exact path="/page2" component={Page2} />
+      <Route exact path="/page3" component={Page3} />
     </Router>
+  );
+}
+
+function Page1() {
+  return (
+    <div>
+      <h1>Page1</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum deserunt
+        odio neque atque incidunt iure. Fuga inventore incidunt dignissimos
+        aspernatur distinctio? Eum, debitis. Repellendus repudiandae suscipit
+        eaque quos alias laudantium?
+      </p>
+    </div>
+  );
+}
+
+function Page2() {
+  return (
+    <div>
+      <h1>Page2</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid,
+        explicabo porro veritatis vitae alias nisi magni minus officia quia,
+        incidunt beatae laboriosam natus perspiciatis doloribus cum atque
+        obcaecati fugiat vero.
+      </p>
+    </div>
+  );
+}
+
+function Page3() {
+  return (
+    <div>
+      <h1>Page3</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ducimus
+        doloribus necessitatibus a, facere quis repellat, magnam inventore modi
+        temporibus est unde. Facere nostrum, libero sint dolores consequuntur
+        error quam.
+      </p>
+    </div>
   );
 }
 
