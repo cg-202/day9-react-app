@@ -28,9 +28,13 @@ function App() {
 }
 
 function Page1() {
+  const [counter, setCounter] = useState(100);
+
   return (
     <div>
-      <h1>Page1</h1>
+      <h1>Page1 </h1>
+      <div className="alert alert-secondary">Counter {counter}</div>
+
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum deserunt
         odio neque atque incidunt iure. Fuga inventore incidunt dignissimos
@@ -42,9 +46,22 @@ function Page1() {
 }
 
 function Page2() {
+  const [cityList, setCityList] = useState([
+    "delhi",
+    "calcutta",
+    "mumbai",
+    "chennai",
+  ]);
   return (
     <div>
       <h1>Page2</h1>
+
+      {cityList.map((item, index) => (
+        <div key={index} className="alert alert-secondary">
+          {item}
+        </div>
+      ))}
+
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid,
         explicabo porro veritatis vitae alias nisi magni minus officia quia,
@@ -59,12 +76,46 @@ function Page3() {
   return (
     <div>
       <h1>Page3</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ducimus
-        doloribus necessitatibus a, facere quis repellat, magnam inventore modi
-        temporibus est unde. Facere nostrum, libero sint dolores consequuntur
-        error quam.
-      </p>
+
+      <div>
+        <form>
+          <div>
+            <input
+              type="text"
+              className="form-control mb-1"
+              placeholder="Enter username"
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              className="form-control mb-1"
+              placeholder="Enter username"
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              className="form-control mb-1"
+              placeholder="Enter username"
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              className="form-control mb-1"
+              placeholder="Enter Password"
+            />
+          </div>
+          <div>
+            <input
+              type="button"
+              value="REGISTER"
+              className="btn btn-dark w-100"
+            />
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
