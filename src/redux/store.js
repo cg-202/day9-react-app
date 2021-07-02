@@ -17,8 +17,16 @@ const initState = {
  * This functions helps us to UPDATE THE STATE; which declared as initial state.
  */
 function MyAppReducer(state = initState, action) {
-  // TODO UPDATE THE STATE
-  return state;
+  switch (action.type) {
+    case "COUNTER_INCREMENT":
+      let newcounter = state.counter + 100;
+      return { ...state, counter: newcounter };
+    case "COUNTER_DECREMENT":
+      let newcounter1 = state.counter - 10;
+      return { ...state, counter: newcounter1 };
+    default:
+      return state;
+  }
 }
 
 const store = createStore(MyAppReducer);
