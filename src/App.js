@@ -15,7 +15,7 @@ function MySpaTag() {
 
   return (
     <div>
-      <h2 className="bg-dark text-light p-3 sticky-top">Project Book</h2>
+      <h2 className="bg-dark text-light p-3 sticky-top">Home</h2>
 
       {list.map((item, index) => (
         <div key={index} className="bg-secondary text-light p-4 m-3 rounded">
