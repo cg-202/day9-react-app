@@ -7,10 +7,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <Route path="/home" component={MyAppHomePage} />
-      <Route path="/explore" component={MyAppExplorePage} />
-      <Route path="/notification" component={MyAppNotificationPage} />
-      <Route path="/message" component={MyAppMessagesPage} />
+      <Route exact path="/" component={MyAppHomePage} />
+
+      <Route exact path="/home" component={MyAppHomePage} />
+      <Route exact path="/explore" component={MyAppExplorePage} />
+      <Route exact path="/notification" component={MyAppNotificationPage} />
+      <Route exact path="/message" component={MyAppMessagesPage} />
     </Router>
   );
 }
