@@ -4,6 +4,7 @@ import { createStore } from "@reduxjs/toolkit";
 const initState = {
   counter: 100,
   cityList: ["Delhi", "Calcutta", "Mumbai", "Chennai"],
+  todoList: ["Learning React"],
 };
 
 /**
@@ -24,6 +25,10 @@ function MyAppReducer(state = initState, action) {
     case "COUNTER_DECREMENT":
       let newcounter1 = state.counter - 10;
       return { ...state, counter: newcounter1 };
+    case "ADD_TODO":
+      const newTodoList = ["NEW TODO", ...state.todoList];
+      return { ...state, todoList: newTodoList };
+
     default:
       return state;
   }

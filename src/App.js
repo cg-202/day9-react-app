@@ -86,8 +86,9 @@ function Page2() {
 
       <div className="alert alert-secondary">Counter {state.counter}</div>
 
-      {state.cityList.map((item, index) => (
-        <div key={index} className="alert alert-secondary">
+      <h3>Todo List</h3>
+      {state.todoList.map((item, index) => (
+        <div key={index} className="alert alert-primary">
           {item}
         </div>
       ))}
@@ -103,53 +104,54 @@ function Page2() {
 }
 
 function Page3() {
+  const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  // console.log("Page3", state);
+
+  const [inputTodo, setInputTodo] = useState("");
+  const updateInputTodo = (e) => {
+    setInputTodo(e.target.value);
+  };
+
+  const addNewTodo = () => {
+    dispatch({ type: "ADD_TODO" });
+  };
 
   return (
     <div>
       <h1>Page3</h1>
-      <div className="alert alert-secondary">Counter {state.counter}</div>
+      <div className="alert alert-secondary">
+        Total Todo {state.todoList.length}
+      </div>
 
       <div>
         <form>
           <div>
             <input
               type="text"
-              className="form-control mb-1"
-              placeholder="Enter username"
+              value={inputTodo}
+              onChange={updateInputTodo}
+              className="form-control form-control-lg mb-1"
+              placeholder="Enter Todo"
             />
           </div>
-          <div>
-            <input
-              type="text"
-              className="form-control mb-1"
-              placeholder="Enter username"
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              className="form-control mb-1"
-              placeholder="Enter username"
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              className="form-control mb-1"
-              placeholder="Enter Password"
-            />
-          </div>
+
           <div>
             <input
               type="button"
-              value="REGISTER"
+              value="Add Todo"
+              onClick={addNewTodo}
               className="btn btn-dark w-100"
             />
           </div>
         </form>
       </div>
+
+      <h3 className="mt-4">Todo List</h3>
+      {state.todoList.map((item, index) => (
+        <div key={index} className="alert alert-primary">
+          {item}
+        </div>
+      ))}
     </div>
   );
 }
